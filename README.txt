@@ -121,6 +121,16 @@ and then run it:
 
 Here's an example output + explanation:
 
+input: 
+
+std::vector<Unit> allUnits = {
+    {"Warrior",   3, 5, "Melee"},
+    {"Mage",      3, 4, "Ranged"},
+    {"Archer",    2, 3, "Ranged"},
+    {"Knight",    4, 6, "Melee"},
+    {"Assassin",  3, 5, "Melee"}
+};
+
 output:
 
 Shop at depth 1: [Mage $3 V4 Ranged] [Mage $3 V4 Ranged] [Knight $4 V6 Melee]
@@ -142,6 +152,7 @@ opportunity to actually create an algorithm for deciding what characters to play
 able to play against it. While the current algorithm may be lacking in more niche features, I 
 believe I have built a solid groundwork for an algorithm that can play my game. In the future, I hope to
 add more synergy types between characters. The algorithm is currently exponential compared to the number of
-plys. As such, I want the algorithm to sometimes behave greedily and skip steps to help with runtime. In the long
-term, I hope to train an actual AI trained on real players that will be able to make in-game decisions.
+plys. As such, I want the algorithm to sometimes behave greedily and reduce the search space to help with runtime. 
+In the long term, I hope to train an actual AI trained on real players that will be able to make in-game decisions.
+
 
