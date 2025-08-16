@@ -1,4 +1,4 @@
-Auto Chess AI Decision Tree
+Auto Chess algorithm Decision Tree
 
 What is Auto Chess / TFT?
 This project is inspired by the Auto Chess genre and Teamfight Tactics (TFT). In these games:
@@ -7,7 +7,7 @@ This project is inspired by the Auto Chess genre and Teamfight Tactics (TFT). In
 - Gold management is crucial as you can either spend on units immediately or save gold for future rounds, sometimes earning interest for saving.  
 - Once units are bought, they automatically fight, and the strategy happens before the battle during the shop/decision phase.  
 
-My AI focuses only on the shop decision-making phase, specifically, whether to buy a unit or skip, and what that means across multiple rounds.
+My algorithm focuses only on the shop decision-making phase, specifically, whether to buy a unit or skip, and what that means across multiple rounds.
 
 ----------------------------------------------------------------------------------------------------------------
 
@@ -25,23 +25,23 @@ Goal of the project is to demonstrate:
 
 Data Structure Implemented: Decision Tree
 
-The AI uses a decision tree to simulate future shop states.  
+The algorithm uses a decision tree to simulate future shop states.  
 
 - Nodes: represent game states (current gold, units owned, and shop offers).  
-- Edges: represent decisions the AI can make:
+- Edges: represent decisions the algorithm can make:
   - Buy a unit (spend gold, add to roster).  
   - Skip (keep gold and reroll the shop in the next ply).  
 
-Each node expands into children that reflect what the shop could look like in the next round. The depth of the tree (number of plies) controls how far ahead the AI “thinks.”
+Each node expands into children that reflect what the shop could look like in the next round. The depth of the tree (number of plies) controls how far ahead the algorithm “thinks.”
 
 ----------------------------------------------------------------------------------------------------------------
 
 Algorithm Used: Minimax Search:
 At the core of this project is a minimax-style recursive search.  
 
-- Traverse: Starting at the root (the current shop), the AI recursively explores all possible decisions (buying different units or skipping).  
+- Traverse: Starting at the root (the current shop), the algorithm recursively explores all possible decisions (buying different units or skipping).  
 - Evaluate: Each leaf node (end of a simulation path) is scored using a heuristic function.  
-- Backpropagate: The scores “bubble up” to the root, where the AI chooses the best action at the current shop.  
+- Backpropagate: The scores “bubble up” to the root, where the algorithm chooses the best action at the current shop.  
 
 Pseudocode of the minimax function:
 
@@ -65,14 +65,14 @@ The evaluation function is where the algorithm's intelligence comes in. A state 
 
 Unit Strength: sum of unit values (cost as proxy for level/strength).
 
-Gold Remaining: leftover coins add to the score (for saving strategies).
+Gold Remalgorithmning: leftover coins add to the score (for saving strategies).
 
-Synergy Bonus: if the roster has an uneven amount of melee and ranged units, try to even it out.
-
+Synergy Bonus: if the roster has an unequal amount of melee and ranged units, try to even it out. (In the future there will be way more synergies. However, I only chose 
+               one synergy to keep the algorithm easier to follow.
 
 ----------------------------------------------------------------------------------------------------------------
 
-I took feedback from my proposal into my work because my proposal was poorly recieved (it almost dropped me a letter grade :/)
+I took feedback from my proposal into my work because my proposal was poorly received (it almost dropped me a letter grade :/)
 
 One good observation that I liked was that if one strategy buys weaker units + saves more gold and another buys stronger units + saves less, the total score could be the same.
 
@@ -82,11 +82,11 @@ Unit strength weighted slightly higher than gold (e.g., 1.5× per unit cost).
 
 Gold weighted slightly lower (e.g., 1.0× per coin).
 
-This ensures the AI favors stronger units when values tie, which is kind of how real players think.
+This ensures the algorithm favors stronger units when values tie, which is kind of how real players think.
 
 ----------------------------------------------------------------------------------------------------------------
 
-Implementation Details:
+Implementation Detalgorithmls:
 
  - Node Payload:
 
@@ -109,11 +109,13 @@ How to run:
 
 It runs like a normal file in C++.
 
-For me I build it 
+For me, I build it: 
 
-'g++ -std=c++17 -o autochess mainTwo.cpp'
+'g++ -std=c++17 -o autochess malgorithmnTwo.cpp'
 
-and then run it
+and then run it:
+
+./shop_ai
 
 ----------------------------------------------------------------------------------------------------------------
 
@@ -126,9 +128,9 @@ Shop at depth 1: [Mage $3 V4 Ranged] [Mage $3 V4 Ranged] [Knight $4 V6 Melee]
     (after skipping) Shop at depth 2: [Mage $3 V4 Ranged] [Archer $2 V3 Ranged] [Assassin $3 V5 Melee]
 
 Skip -> score 10
-AI Decision: Buy Assassin (score 13)
+algorithm Decision: Buy Assassin (score 13)
 
-explanation: Here the AI explores both buying and skipping, simulates the next round’s shops, evaluates scores, 
+explanation: Here, the algorithm explores both buying and skipping, simulates the next round’s shops, evaluates scores, 
              and decides to buy the Assassin.
 
 ----------------------------------------------------------------------------------------------------------------
@@ -136,6 +138,7 @@ explanation: Here the AI explores both buying and skipping, simulates the next r
 Future goals: 
 
 I am actually currently working on my own game in the autochess genre. I used this project as an
-opportunity to actually create an AI for deciding what characters to play so that one might be 
-able to play against it. While the current AI may be lacking in more defined features, I 
-believe I have built a solid groundwork for an AI that can play my game.
+opportunity to actually create an algorithm for deciding what characters to play so that one might be 
+able to play against it. While the current algorithm may be lacking in more defined features, I 
+
+believe I have built a solid groundwork for an algorithm that can play my game.
