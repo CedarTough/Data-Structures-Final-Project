@@ -139,6 +139,9 @@ Future goals:
 
 I am actually currently working on my own game in the autochess genre. I used this project as an
 opportunity to actually create an algorithm for deciding what characters to play so that one might be 
-able to play against it. While the current algorithm may be lacking in more defined features, I 
+able to play against it. While the current algorithm may be lacking in more niche features, I 
+believe I have built a solid groundwork for an algorithm that can play my game. In the future, I hope to
+add more synergy types between characters. The algorithm is currently exponential compared to the number of
+plys. As such, I want the algorithm to sometimes behave greedily and skip steps to help with runtime. In the long
+term, I hope to train an actual AI trained on real players that will be able to make in-game decisions.
 
-believe I have built a solid groundwork for an algorithm that can play my game.
